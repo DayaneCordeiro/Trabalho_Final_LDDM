@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1041104224198",
+    "firebase_url": "https://rest-manager-5b67e.firebaseio.com",
+    "project_id": "rest-manager-5b67e",
+    "storage_bucket": "rest-manager-5b67e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1041104224198:android:0d107848ebd4f96ae0bcc7",
+        "android_client_info": {
+          "package_name": "br.coding.brasil.rest_manager"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1041104224198-qk1ug2voono2vf7ce6acd0ohjrva7lnt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxbm6NTHPaqQRQJwHk8iZuhPY19L49TaE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1041104224198-qk1ug2voono2vf7ce6acd0ohjrva7lnt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
