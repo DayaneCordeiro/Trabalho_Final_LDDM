@@ -28,12 +28,11 @@ class AboutUs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: AboutUsPage(title: 'Flutter Demo Home Page'),
+      debugShowCheckedModeBanner: false,
+      home: AboutUsPage(title: 'Sobre este aplicativo'),
     );
   }
 }
@@ -48,39 +47,37 @@ class AboutUsPage extends StatefulWidget {
 }
 
 class _AboutUsPageState extends State<AboutUsPage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        backgroundColor: Colors.cyan[700],
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
+            Padding(
+              padding: EdgeInsets.all(15),
+              child: Text(
+                'Este aplicativo foi desenvolvido pela bacharelanda em Engenharia de Computação, Dayane Cordeiro, em um trabalho acadêmico da ' +
+                    'disciplina Laboratório de Desenvolvimento para Dispositívos Móveis na Pontifícia Universidade Católica de Minas Gerais. ' +
+                    'O aplicativo tem por objetivo ajudar nas questões de cuidados mentais durante o período pandêmico causado pelo Covid 19 e em ' +
+                    'tempos de isolamento social e home office. A ideia principal do sistema é incentivar a inclusão de atividades saudáveis física e ' +
+                    'psicologicamente na rotina com uma percepção visual do progresso durante cada dia.',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                ),
+                textAlign: TextAlign.justify,
+              ),
+            )
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ),
+      backgroundColor: Colors.grey[800],
     );
   }
 }
