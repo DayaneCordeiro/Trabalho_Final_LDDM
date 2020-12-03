@@ -252,11 +252,6 @@ class _MyFormState extends State<MyForm> {
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () async {
           _setData();
-          SharedPreferences preferences = await SharedPreferences.getInstance();
-          print(_restTime.text);
-          print('teste mermão');
-          print(preferences.getBool('booksValue').toString());
-          print(preferences.getString('_restTime'));
           Navigator.push(
             context,
             MaterialPageRoute(
