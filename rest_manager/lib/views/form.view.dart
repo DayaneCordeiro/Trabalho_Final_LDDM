@@ -102,7 +102,7 @@ class _MyFormState extends State<MyForm> {
 
   // Função que verifica se os campos  foram preenchidos antes de deixar salvar
   _validate(String text, String field) {
-    if (text == '0' || text.isEmpty) {
+    if (text.isEmpty) {
       return "Informe $field";
     }
     return null;
@@ -123,7 +123,7 @@ class _MyFormState extends State<MyForm> {
             TextFormField(
               controller: _workedHours,
               validator: (validation) =>
-                  _validate(_workedHours.text, " as horas trabalhadas"),
+                  _validate(validation, " as horas trabalhadas"),
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
                 labelText: "Quantas horas você trabalha por dia?",
@@ -139,7 +139,7 @@ class _MyFormState extends State<MyForm> {
             TextFormField(
               controller: _restTime,
               validator: (validation) =>
-                  _validate(_restTime.text, " as horas de descanso"),
+                  _validate(validation, " as horas de descanso"),
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
                 labelText: "Quantas horas de descanso você tem por dia?",
