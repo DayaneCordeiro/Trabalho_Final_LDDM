@@ -5,6 +5,7 @@ import 'package:rest_manager/repositories/activity.database.dart';
 class ActivityRepository {
   static ActivityRepository _instance;
   ActivityRepository._();
+
   AppDatabase database;
   ActivityDao activityDao;
 
