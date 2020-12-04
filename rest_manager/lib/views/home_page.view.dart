@@ -23,20 +23,28 @@
 */
 
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'form.view.dart';
 import 'about_us.view.dart';
+import 'package:provider/provider.dart';
+import '../controllers/activity.controller.dart';
+import 'package:rest_manager/models/activity.model.dart';
+import '../app_status.dart';
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Descanso',
-      theme: ThemeData(
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: MyHomePage(title: 'Gerenciador de descanso'),
-      debugShowCheckedModeBanner: false,
-    );
+    return MultiProvider(
+        providers: [
+          Provider<ActivityController>.value(
+            value: ActivityController(),
+          )
+        ],
+        child: MaterialApp(
+          title: 'Gerenciador de descanso',
+          debugShowCheckedModeBanner: false,
+          home: MyHomePage(title: 'Gerenciador de descanso'),
+        ));
   }
 }
 
@@ -50,12 +58,15 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  // Variables
+  ActivityController _controller;
+
   @override
   Widget build(BuildContext context) {
+    _controller = Provider.of<ActivityController>(context);
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
-        //centerTitle: true,
         backgroundColor: Colors.cyan[700],
         actions: <Widget>[
           IconButton(
@@ -82,13 +93,25 @@ class _MyHomePageState extends State<MyHomePage> {
           )
         ],
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            /* TO DO */
-          ],
-        ),
+      body: Scrollbar(
+        child: Observer(builder: (_) {
+          if (_controller.status == AppStatus.loading) {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          } else if (_controller.status == AppStatus.success) {
+            return ListView(
+              children: [
+                Text(_controller.list.length.toString()),
+                for (int i = 0; i < _controller.list.length; i++)
+                  Text(_controller.list[i].title)
+                //ListTile(title: Text(_controller.list[i].title))
+              ],
+            );
+          } else {
+            return Text("Carregando");
+          }
+        }),
       ),
       backgroundColor: Colors.grey[800],
     );

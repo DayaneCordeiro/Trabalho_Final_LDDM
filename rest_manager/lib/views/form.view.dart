@@ -25,6 +25,11 @@
 import 'package:flutter/material.dart';
 import 'package:rest_manager/views/home_page.view.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:rest_manager/controllers/activity.controller.dart';
+import 'package:rest_manager/models/activity.model.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:provider/provider.dart';
+import '../app_status.dart';
 
 class FormApp extends StatelessWidget {
   @override
@@ -59,6 +64,7 @@ class _MyFormState extends State<MyForm> {
   bool meditateValue = false;
   bool restValue = false;
   bool learningValue = false;
+  ActivityController _controller = null;
 
   @override
   void initState() {
@@ -88,6 +94,12 @@ class _MyFormState extends State<MyForm> {
   _setData() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
 
+    if (booksValue) {
+      Activity books = new Activity(
+          title: 'Ler livros', actualTime: 0, missingTime: 0, percentage: 100);
+      preferences.setString('books', books.toString());
+    }
+
     setState(() {
       preferences.setBool('booksValue', booksValue);
       preferences.setBool('workoutValue', workoutValue);
@@ -108,8 +120,62 @@ class _MyFormState extends State<MyForm> {
     return null;
   }
 
+  // @brief Determina quantos itens estão marcados como true
+  int _findTrue() {
+    int counter = 0;
+
+    if (booksValue) counter += 1;
+    if (workoutValue) counter += 1;
+    if (meditateValue) counter += 1;
+    if (restValue) counter += 1;
+    if (learningValue) counter += 1;
+
+    return counter;
+  }
+
+  // @brief Verifica quanto tempo a pessoa terá de descanso por dia
+  int _calculateTime() {
+    // Essa função tem como base o método pomodoro, para cada hora de trabalho, deve-se tirar 10 minutos de descanso
+    int totalTime = 0;
+
+    // Aplica o método pomodoro e calcula os minutos de descanso de acordo com as horas de trabalho
+    if (_workedHours.text.isNotEmpty && _workedHours.text != '0') {
+      double aux = double.parse(_workedHours.text);
+      totalTime += (aux * 10).round();
+    }
+
+    // Caso tenha tempo de descanso, transforma em números, converte pra minutos (int)
+    if (_restTime.text.isNotEmpty && _restTime.text != '0') {
+      double aux = double.parse(_restTime.text);
+      double minutes = aux * 60; // Transforma as horas em minutos
+      totalTime += minutes.round();
+    }
+
+    return totalTime;
+  }
+
+  // @brief Se a atividade de ler livros estiver marcada, calcula quantas páginas pode ler no tempo proposto
+  int _calculatePages(int time) {
+    // basseando numa estimativa de 3 minutos por página
+    int totalPages = (time / 3).floor();
+
+    return totalPages;
+  }
+
+  // @brief Limpa o banco de dados antes de salvar as novas informações
+  _clearDatabase() async {
+    ActivityController _controller =
+        Provider.of<ActivityController>(context, listen: false);
+    await _controller.getAll();
+
+    for (int i = 0; i < _controller.list.length; i++) {
+      _controller.delete(i);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    _controller = Provider.of<ActivityController>(context);
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -252,6 +318,65 @@ class _MyFormState extends State<MyForm> {
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () async {
           _setData();
+          // Recebeu quantas atividades deve fazer por dia
+          int counter = _findTrue();
+
+          // Recebeu quanto tempo de descanso deve ter
+          int totalTime = _calculateTime();
+
+          // Se o tempo for maior que zero, divide entre as atividades selecionadas
+          int activityTime = (totalTime / counter).floor();
+
+          // Se a atividade de ler livros tiver sido marcada, vamos calcular quantas páginas
+          // baseado em um estudo oferecido que mostra que em média uma pessoa consegue ler
+          // uma página a cada 3 minutos
+          int numPages = 0;
+
+          if (booksValue) {
+            // Se o livro tiver sido marcado realiza a lógica
+            numPages = _calculatePages(activityTime);
+          }
+
+          // Apaga tudo que está no banco para reescrever as informações
+          await _clearDatabase();
+
+          // Salvando no banco as atividades selecionadas
+          if (booksValue) {
+            await _controller.create(Activity(
+                title: "Ler livros",
+                actualTime: 0,
+                missingTime: numPages,
+                percentage: 0));
+          }
+          if (workoutValue) {
+            await _controller.create(Activity(
+                title: "Atividades Físicas",
+                actualTime: 0,
+                missingTime: activityTime,
+                percentage: 0));
+          }
+          if (meditateValue) {
+            await _controller.create(Activity(
+                title: "Meditação",
+                actualTime: 0,
+                missingTime: activityTime,
+                percentage: 0));
+          }
+          if (restValue) {
+            await _controller.create(Activity(
+                title: "Descansar",
+                actualTime: 0,
+                missingTime: activityTime,
+                percentage: 0));
+          }
+          if (learningValue) {
+            await _controller.create(Activity(
+                title: "Aprender algo novo",
+                actualTime: 0,
+                missingTime: activityTime,
+                percentage: 0));
+          }
+
           Navigator.push(
             context,
             MaterialPageRoute(

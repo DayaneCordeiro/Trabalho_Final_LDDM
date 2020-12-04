@@ -23,8 +23,6 @@
 */
 
 import 'package:flutter/material.dart';
-import 'views/home_page.view.dart';
+import 'package:rest_manager/views/home_page.view.dart';
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(MyApp());
