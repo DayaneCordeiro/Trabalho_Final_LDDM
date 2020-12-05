@@ -35,16 +35,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-        providers: [
-          Provider<ActivityController>.value(
-            value: ActivityController(),
-          )
-        ],
-        child: MaterialApp(
-          title: 'Gerenciador de descanso',
-          debugShowCheckedModeBanner: false,
-          home: MyHomePage(title: 'Gerenciador de descanso'),
-        ));
+      providers: [
+        Provider<ActivityController>.value(
+          value: ActivityController(),
+        )
+      ],
+      child: MaterialApp(
+        title: 'Gerenciador de descanso',
+        debugShowCheckedModeBanner: false,
+        home: MyHomePage(title: 'Gerenciador de descanso'),
+      ),
+    );
   }
 }
 
@@ -60,6 +61,9 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   // Variables
   ActivityController _controller;
+  var addTimeController = new TextEditingController();
+  int newMissinTime;
+  double newPercentage;
 
   @override
   Widget build(BuildContext context) {
@@ -104,14 +108,115 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 Text(_controller.list.length.toString()),
                 for (int i = 0; i < _controller.list.length; i++)
-                  Text(_controller.list[i].title)
-                //ListTile(title: Text(_controller.list[i].title))
+                  ListTile(
+                    leading: const Icon(
+                      Icons.today,
+                      color: Colors.cyan,
+                      size: 35,
+                    ),
+                    title: Text(
+                      _controller.list[i].title,
+                      style: TextStyle(color: Colors.blue[100], fontSize: 20),
+                    ),
+                    subtitle: Text(
+                      "Quanto tempo dedicar :" +
+                          _controller.list[i].actualTime.toString() +
+                          "                         " +
+                          "Quanto tempo falta: " +
+                          _controller.list[i].missingTime.toString() +
+                          "                         " +
+                          "Porcentagem atual: " +
+                          _controller.list[i].percentage.toString() +
+                          "%",
+                      style: TextStyle(color: Colors.white, fontSize: 14),
+                    ),
+                    isThreeLine: true,
+                    onTap: () {
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            content: Form(
+                              child: Container(
+                                height: 150,
+                                child: TextFormField(
+                                  controller: addTimeController,
+                                  keyboardType: TextInputType.number,
+                                  decoration: InputDecoration(
+                                    labelText:
+                                        "Quantos minutos você quer adicionar?",
+                                    labelStyle: TextStyle(color: Colors.white),
+                                  ),
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 20,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            actions: <Widget>[
+                              FlatButton(
+                                child: new Text('CANCELAR'),
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                              ),
+                              FlatButton(
+                                child: new Text('SALVAR'),
+                                onPressed: () {
+                                  // Calcula quantos minutos faltam para terminar a atividade
+                                  newMissinTime =
+                                      _controller.list[i].missingTime -
+                                          int.parse(addTimeController.text);
+
+                                  // Calcula o progresso em porcetagem
+                                  double doneTime =
+                                      (_controller.list[i].actualTime -
+                                          _controller.list[i].missingTime);
+                                  newPercentage = (doneTime * 100) /
+                                      _controller.list[i].actualTime;
+
+                                  _controller.update(
+                                    Activity(
+                                        id: _controller.list[i].id,
+                                        title: _controller.list[i].title,
+                                        actualTime:
+                                            _controller.list[i].actualTime,
+                                        missingTime: newMissinTime,
+                                        percentage: newPercentage),
+                                  );
+
+                                  Navigator.of(context).pop();
+                                },
+                              ),
+                            ],
+                          );
+                        },
+                      );
+                    },
+                  )
               ],
             );
           } else {
             return Text("Carregando");
           }
         }),
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          for (int i = 0; i < _controller.list.length; i++) {
+            _controller.update(
+              Activity(
+                  id: _controller.list[i].id,
+                  title: _controller.list[i].title,
+                  actualTime: _controller.list[i].actualTime,
+                  missingTime: 0,
+                  percentage: 0),
+            );
+          }
+        },
+        label: Text('Zerar progresso'),
+        backgroundColor: Colors.cyan[700],
       ),
       backgroundColor: Colors.grey[800],
     );
