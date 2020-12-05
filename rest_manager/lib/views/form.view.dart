@@ -344,38 +344,40 @@ class _MyFormState extends State<MyForm> {
           if (booksValue) {
             await _controller.create(Activity(
                 title: "Ler livros",
-                actualTime: 0,
+                actualTime: numPages.toDouble(),
                 missingTime: numPages,
                 percentage: 0));
           }
           if (workoutValue) {
             await _controller.create(Activity(
                 title: "Atividades Físicas",
-                actualTime: 0,
+                actualTime: activityTime.toDouble(),
                 missingTime: activityTime,
                 percentage: 0));
           }
           if (meditateValue) {
             await _controller.create(Activity(
                 title: "Meditação",
-                actualTime: 0,
+                actualTime: activityTime.toDouble(),
                 missingTime: activityTime,
                 percentage: 0));
           }
           if (restValue) {
             await _controller.create(Activity(
                 title: "Descansar",
-                actualTime: 0,
+                actualTime: activityTime.toDouble(),
                 missingTime: activityTime,
                 percentage: 0));
           }
           if (learningValue) {
             await _controller.create(Activity(
                 title: "Aprender algo novo",
-                actualTime: 0,
+                actualTime: activityTime.toDouble(),
                 missingTime: activityTime,
                 percentage: 0));
           }
+
+          //print(_controller.list.last.id);
 
           Navigator.push(
             context,
