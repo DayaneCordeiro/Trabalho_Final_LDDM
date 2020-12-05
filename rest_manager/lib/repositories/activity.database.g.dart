@@ -146,6 +146,7 @@ class _$ActivityDao extends ActivityDao {
   Future<List<Activity>> getAll() async {
     return _queryAdapter.queryList('SELECT * FROM Activity',
         mapper: (Map<String, dynamic> row) => Activity(
+            id: row['id'] as int,
             title: row['title'] as String,
             actualTime: row['actualTime'] as double,
             missingTime: row['missingTime'] as int,
@@ -157,6 +158,7 @@ class _$ActivityDao extends ActivityDao {
     return _queryAdapter.query('SELECT * from Activity where id = ?',
         arguments: <dynamic>[id],
         mapper: (Map<String, dynamic> row) => Activity(
+            id: row['id'] as int,
             title: row['title'] as String,
             actualTime: row['actualTime'] as double,
             missingTime: row['missingTime'] as int,

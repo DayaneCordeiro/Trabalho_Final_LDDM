@@ -9,7 +9,12 @@ class Activity {
   int missingTime;
   double percentage;
 
-  Activity({this.title, this.actualTime, this.missingTime, this.percentage});
+  Activity(
+      {this.id,
+      this.title,
+      this.actualTime,
+      this.missingTime,
+      this.percentage});
 
   Activity.fromJson(Map<String, dynamic> json) {
     id = json['id'];
