@@ -104,9 +104,132 @@ class _MyHomePageState extends State<MyHomePage> {
               child: CircularProgressIndicator(),
             );
           } else if (_controller.status == AppStatus.success) {
+            // Parte estática para apresentação - remover quando ajustar bug no sqlite
             return ListView(
               children: [
-                Text(_controller.list.length.toString()),
+                ListTile(
+                  leading: const Icon(
+                    Icons.today,
+                    color: Colors.cyan,
+                    size: 35,
+                  ),
+                  title: Text(
+                    "Ler livros",
+                    style: TextStyle(color: Colors.blue[100], fontSize: 20),
+                  ),
+                  subtitle: Text(
+                    "Quantas páginas ler : 20" +
+                        "                                         " +
+                        "Quantas páginas faltam: " +
+                        "                         " +
+                        "Porcentagem atual: 0" +
+                        "%",
+                    style: TextStyle(color: Colors.white, fontSize: 16),
+                  ),
+                  isThreeLine: true,
+                  onTap: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          content: Form(
+                            child: Container(
+                              height: 150,
+                              child: TextFormField(
+                                controller: addTimeController,
+                                keyboardType: TextInputType.number,
+                                decoration: InputDecoration(
+                                  labelText:
+                                      "Quantas páginas você quer adicionar?",
+                                  labelStyle: TextStyle(fontSize: 14),
+                                ),
+                                style: TextStyle(
+                                  fontSize: 20,
+                                ),
+                              ),
+                            ),
+                          ),
+                          actions: <Widget>[
+                            FlatButton(
+                              child: new Text('CANCELAR'),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                            ),
+                            FlatButton(
+                              child: new Text('SALVAR'),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  },
+                ),
+                ListTile(
+                  leading: const Icon(
+                    Icons.today,
+                    color: Colors.cyan,
+                    size: 35,
+                  ),
+                  title: Text(
+                    "Aprender algo novo",
+                    style: TextStyle(color: Colors.blue[100], fontSize: 20),
+                  ),
+                  subtitle: Text(
+                    "Quanto tempo dedicar : 60" +
+                        " min                                         " +
+                        "Quanto tempo falta: 60 min" +
+                        "                         " +
+                        "Porcentagem atual: 0" +
+                        "%",
+                    style: TextStyle(color: Colors.white, fontSize: 16),
+                  ),
+                  isThreeLine: true,
+                  onTap: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          content: Form(
+                            child: Container(
+                              height: 150,
+                              child: TextFormField(
+                                controller: addTimeController,
+                                keyboardType: TextInputType.number,
+                                decoration: InputDecoration(
+                                  labelText:
+                                      "Quantos minutos você quer adicionar?",
+                                  labelStyle: TextStyle(fontSize: 14),
+                                ),
+                                style: TextStyle(
+                                  fontSize: 20,
+                                ),
+                              ),
+                            ),
+                          ),
+                          actions: <Widget>[
+                            FlatButton(
+                              child: new Text('CANCELAR'),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                            ),
+                            FlatButton(
+                              child: new Text('SALVAR'),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  },
+                ),
+                // Fim da parte estática, início da parte dinâmica
                 for (int i = 0; i < _controller.list.length; i++)
                   ListTile(
                     leading: const Icon(
@@ -128,7 +251,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           "Porcentagem atual: " +
                           _controller.list[i].percentage.toString() +
                           "%",
-                      style: TextStyle(color: Colors.white, fontSize: 14),
+                      style: TextStyle(color: Colors.white, fontSize: 16),
                     ),
                     isThreeLine: true,
                     onTap: () {
