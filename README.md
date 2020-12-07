@@ -1,5 +1,8 @@
 # Gerenciado de descanso 😎
 
+### Link do vídeo
+* 
+
 ### Descrição da aplicação
 * Trabalho desenvolvido na disciplina Laboratório de Desenvolvimento para Dispositivos Móveis.
 * Aplicativo mobile utilizando as tecnologias Flutter, SQLite, SharedPreferences e com padrão de arquitetura MVC.
