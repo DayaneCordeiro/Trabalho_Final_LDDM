@@ -1,7 +1,7 @@
 # Gerenciado de descanso 😎
 
 ### Link do vídeo
-* 
+* https://reccloud.com/pt/u/icmgh8e
 
 ### Descrição da aplicação
 * Trabalho desenvolvido na disciplina Laboratório de Desenvolvimento para Dispositivos Móveis.
@@ -18,7 +18,7 @@
     * Descansar;
     * Aprender algo novo.
 * Após a realização dessas configurações, o usuário terá na tela principal quanto tempo de dedicação deve realizar em cada atividade escolhida. Vale citar que quando o usuário marcar a opção ler livros, invés de aparecer o tempo de dedicação, aparecerá quantas páginas deve ler por dia. O cálculo foi baseado em um estudo que comprova que uma pessoa lê uma média de 1 página de livro a cada 3 minutos. Clicando na atividade, a pessoa pode adicionar os minutos ou páginas que for cumprindo ou lendo e assim, ver a porcentagem de quanto foi cumprido mudando.
-* Para zerar o tempo de dedicação no dia seguinte, a pessoa pode ir em cada uma das tarefas e zerar manualmente ou clicar no botão disponível ao fim da tela e o progresso reinicia.
+* Para zerar o tempo de dedicação no dia seguinte, a pessoa pode clicar no botão disponível ao fim da tela e o progresso reinicia.
 
 ### Entradas do usuário
 * Quantas horas trabalha por dia;
