@@ -168,9 +168,13 @@ class _MyFormState extends State<MyForm> {
         Provider.of<ActivityController>(context, listen: false);
     await _controller.getAll();
 
+    print("Antes: " + _controller.list.length.toString());
+
     for (int i = 0; i < _controller.list.length; i++) {
-      _controller.delete(i);
+      await _controller.delete(i);
     }
+
+    print("Depois: " + _controller.list.length.toString());
   }
 
   @override
