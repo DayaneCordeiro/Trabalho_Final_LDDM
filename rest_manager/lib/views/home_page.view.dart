@@ -65,6 +65,23 @@ class _MyHomePageState extends State<MyHomePage> {
   int newMissinTime;
   double newPercentage;
 
+  // @brief Retorna o texto de acordo com o tipo de Atividade
+  String _retornaPrimeiraLinhaTexto(String title) {
+    if (title == "Ler livros") {
+      return "Quantas páginas ler hoje";
+    } else {
+      return "Quanto minutos dedicar hoje";
+    }
+  }
+
+  String _retornaSegundaLinhaTexto(String title) {
+    if (title == "Ler livros") {
+      return "Quantas páginas faltam";
+    } else {
+      return "Quantos minutos faltam";
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     _controller = Provider.of<ActivityController>(context);
@@ -107,93 +124,103 @@ class _MyHomePageState extends State<MyHomePage> {
             return ListView(
               children: [
                 for (int i = 0; i < _controller.list.length; i++)
-                  ListTile(
-                    leading: const Icon(
-                      Icons.today,
-                      color: Colors.cyan,
-                      size: 35,
-                    ),
-                    title: Text(
-                      _controller.list[i].title,
-                      style: TextStyle(color: Colors.blue[100], fontSize: 20),
-                    ),
-                    subtitle: Text(
-                      "Quanto tempo dedicar :" +
-                          _controller.list[i].actualTime.toString() +
-                          "                         " +
-                          "Quanto tempo falta: " +
-                          _controller.list[i].missingTime.toString() +
-                          "                         " +
-                          "Porcentagem atual: " +
-                          _controller.list[i].percentage.toString() +
-                          "%",
-                      style: TextStyle(color: Colors.white, fontSize: 16),
-                    ),
-                    isThreeLine: true,
-                    onTap: () {
-                      showDialog(
-                        context: context,
-                        builder: (context) {
-                          return AlertDialog(
-                            content: Form(
-                              child: Container(
-                                height: 150,
-                                child: TextFormField(
-                                  controller: addTimeController,
-                                  keyboardType: TextInputType.number,
-                                  decoration: InputDecoration(
-                                    labelText:
-                                        "Quantos minutos você quer adicionar?",
-                                    labelStyle: TextStyle(color: Colors.white),
-                                  ),
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 20,
+                  Card(
+                      color: Colors.grey[700],
+                      child: ListTile(
+                        leading: const Icon(
+                          Icons.today,
+                          color: Colors.cyan,
+                          size: 35,
+                        ),
+                        title: Text(
+                          _controller.list[i].title,
+                          style:
+                              TextStyle(color: Colors.blue[100], fontSize: 20),
+                        ),
+                        subtitle: Text(
+                          _retornaPrimeiraLinhaTexto(
+                                  _controller.list[i].title) +
+                              ": " +
+                              _controller.list[i].actualTime
+                                  .toInt()
+                                  .toString() +
+                              "                                          " +
+                              _retornaSegundaLinhaTexto(
+                                  _controller.list[i].title) +
+                              ": " +
+                              _controller.list[i].missingTime.toString() +
+                              "                                           " +
+                              "Porcentagem atual: " +
+                              _controller.list[i].percentage.toString() +
+                              "%",
+                          style: TextStyle(color: Colors.white, fontSize: 16),
+                        ),
+                        isThreeLine: true,
+                        onTap: () {
+                          showDialog(
+                            context: context,
+                            builder: (context) {
+                              return AlertDialog(
+                                content: Form(
+                                  child: Container(
+                                    height: 150,
+                                    child: TextFormField(
+                                      controller: addTimeController,
+                                      keyboardType: TextInputType.number,
+                                      decoration: InputDecoration(
+                                        labelText:
+                                            "Quantos minutos você quer adicionar?",
+                                        labelStyle:
+                                            TextStyle(color: Colors.white),
+                                      ),
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 20,
+                                      ),
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ),
-                            actions: <Widget>[
-                              FlatButton(
-                                child: new Text('CANCELAR'),
-                                onPressed: () {
-                                  Navigator.of(context).pop();
-                                },
-                              ),
-                              FlatButton(
-                                child: new Text('SALVAR'),
-                                onPressed: () {
-                                  // Calcula quantos minutos faltam para terminar a atividade
-                                  newMissinTime =
-                                      _controller.list[i].missingTime -
-                                          int.parse(addTimeController.text);
+                                actions: <Widget>[
+                                  FlatButton(
+                                    child: new Text('CANCELAR'),
+                                    onPressed: () {
+                                      Navigator.of(context).pop();
+                                    },
+                                  ),
+                                  FlatButton(
+                                    child: new Text('SALVAR'),
+                                    onPressed: () {
+                                      // Calcula quantos minutos faltam para terminar a atividade
+                                      newMissinTime =
+                                          _controller.list[i].missingTime -
+                                              int.parse(addTimeController.text);
 
-                                  // Calcula o progresso em porcetagem
-                                  double doneTime =
-                                      (_controller.list[i].actualTime -
-                                          _controller.list[i].missingTime);
-                                  newPercentage = (doneTime * 100) /
-                                      _controller.list[i].actualTime;
+                                      // Calcula o progresso em porcetagem
+                                      double doneTime =
+                                          (_controller.list[i].actualTime -
+                                              _controller.list[i].missingTime);
+                                      newPercentage = (doneTime * 100) /
+                                          _controller.list[i].actualTime;
 
-                                  _controller.update(
-                                    Activity(
-                                        id: _controller.list[i].id,
-                                        title: _controller.list[i].title,
-                                        actualTime:
-                                            _controller.list[i].actualTime,
-                                        missingTime: newMissinTime,
-                                        percentage: newPercentage),
-                                  );
+                                      _controller.update(
+                                        Activity(
+                                            id: _controller.list[i].id,
+                                            title: _controller.list[i].title,
+                                            actualTime:
+                                                _controller.list[i].actualTime,
+                                            missingTime: newMissinTime,
+                                            percentage: newPercentage),
+                                      );
 
-                                  Navigator.of(context).pop();
-                                },
-                              ),
-                            ],
+                                      Navigator.of(context).pop();
+                                    },
+                                  ),
+                                ],
+                              );
+                            },
                           );
                         },
-                      );
-                    },
-                  )
+                      )),
               ],
             );
           } else {
