@@ -1,4 +1,4 @@
-# Gerenciado de descanso 😎
+# Gerenciador de descanso 😎
 
 ### Link do vídeo
 * https://reccloud.com/pt/u/icmgh8e
@@ -39,16 +39,16 @@
 * Tela de configurações
 
 
-![]()
-
-
-* Tela de Sobre nós
-
-
-![]()
+![](https://github.com/DayaneCordeiro/Trabalho_Final_LDDM/blob/main/imagens/tela_configura%C3%A7%C3%B5es.PNG)
 
 
 * Tela principal
 
 
-![]()
+![](https://github.com/DayaneCordeiro/Trabalho_Final_LDDM/blob/main/imagens/tela_principal.PNG)
+
+
+* Tela de Sobre nós
+
+
+![](https://github.com/DayaneCordeiro/Trabalho_Final_LDDM/blob/main/imagens/tela_about_us.PNG)
