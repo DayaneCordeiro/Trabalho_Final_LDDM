@@ -168,13 +168,14 @@ class _MyFormState extends State<MyForm> {
         Provider.of<ActivityController>(context, listen: false);
     await _controller.getAll();
 
-    print("Antes: " + _controller.list.length.toString());
+    int aux = _controller.list.length;
 
-    for (int i = 0; i < _controller.list.length; i++) {
-      await _controller.delete(i);
+    // Percorre o banco deletando todas as configurações anteriores para manter apenas a atual
+    while (aux > 0) {
+      await _controller.delete(_controller.list.first.id);
+      print(aux);
+      aux--;
     }
-
-    print("Depois: " + _controller.list.length.toString());
   }
 
   @override
