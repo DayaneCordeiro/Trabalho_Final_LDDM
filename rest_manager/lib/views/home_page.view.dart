@@ -62,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
   // Variables
   ActivityController _controller;
   var addTimeController = new TextEditingController();
-  int newMissinTime;
+  int newMissingTime;
   double newPercentage;
 
   // @brief Retorna o texto da primeira linha de acordo com o tipo de Atividade
@@ -199,14 +199,14 @@ class _MyHomePageState extends State<MyHomePage> {
                                     child: new Text('SALVAR'),
                                     onPressed: () {
                                       // Calcula quantos minutos faltam para terminar a atividade e atualiza a tela
-                                      newMissinTime =
+                                      newMissingTime =
                                           _controller.list[i].missingTime -
                                               int.parse(addTimeController.text);
 
                                       // Calcula o progresso em porcetagem e atualiza a tela7
                                       double doneTime =
                                           (_controller.list[i].actualTime -
-                                              _controller.list[i].missingTime);
+                                              newMissingTime);
                                       newPercentage = (doneTime * 100) /
                                           _controller.list[i].actualTime;
 
@@ -216,7 +216,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                             title: _controller.list[i].title,
                                             actualTime:
                                                 _controller.list[i].actualTime,
-                                            missingTime: newMissinTime,
+                                            missingTime: newMissingTime,
                                             percentage: newPercentage),
                                       );
 
