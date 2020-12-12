@@ -65,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
   int newMissinTime;
   double newPercentage;
 
-  // @brief Retorna o texto de acordo com o tipo de Atividade
+  // @brief Retorna o texto da primeira linha de acordo com o tipo de Atividade
   String _retornaPrimeiraLinhaTexto(String title) {
     if (title == "Ler livros") {
       return "Quantas páginas ler hoje";
@@ -74,11 +74,21 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
+  // @brief Retorna o texto da segunda linha de acordo com o tipo de Atividade
   String _retornaSegundaLinhaTexto(String title) {
     if (title == "Ler livros") {
       return "Quantas páginas faltam";
     } else {
       return "Quantos minutos faltam";
+    }
+  }
+
+  // @brief Retorna o texto do modal de acordo com a atividade
+  String _retornaTextoModal(String title) {
+    if (title == "Ler livros") {
+      return "Quantas páginas você leu?";
+    } else {
+      return "Quantos minutos você fez?";
     }
   }
 
@@ -168,13 +178,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                       controller: addTimeController,
                                       keyboardType: TextInputType.number,
                                       decoration: InputDecoration(
-                                        labelText:
-                                            "Quantos minutos você quer adicionar?",
-                                        labelStyle:
-                                            TextStyle(color: Colors.white),
+                                        labelText: _retornaTextoModal(
+                                            _controller.list[i].title),
+                                        labelStyle: TextStyle(fontSize: 14),
                                       ),
                                       style: TextStyle(
-                                        color: Colors.white,
                                         fontSize: 20,
                                       ),
                                     ),
@@ -190,12 +198,12 @@ class _MyHomePageState extends State<MyHomePage> {
                                   FlatButton(
                                     child: new Text('SALVAR'),
                                     onPressed: () {
-                                      // Calcula quantos minutos faltam para terminar a atividade
+                                      // Calcula quantos minutos faltam para terminar a atividade e atualiza a tela
                                       newMissinTime =
                                           _controller.list[i].missingTime -
                                               int.parse(addTimeController.text);
 
-                                      // Calcula o progresso em porcetagem
+                                      // Calcula o progresso em porcetagem e atualiza a tela7
                                       double doneTime =
                                           (_controller.list[i].actualTime -
                                               _controller.list[i].missingTime);
@@ -211,6 +219,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                             missingTime: newMissinTime,
                                             percentage: newPercentage),
                                       );
+
+                                      addTimeController.clear();
 
                                       Navigator.of(context).pop();
                                     },
