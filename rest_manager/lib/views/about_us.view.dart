@@ -64,12 +64,14 @@ class _AboutUsPageState extends State<AboutUsPage> {
               child: Text(
                 'Este aplicativo foi desenvolvido pela bacharelanda em Engenharia de Computação, Dayane Cordeiro, em um trabalho acadêmico da ' +
                     'disciplina Laboratório de Desenvolvimento para Dispositívos Móveis na Pontifícia Universidade Católica de Minas Gerais. ' +
-                    'O aplicativo tem por objetivo ajudar nas questões de cuidados mentais durante o período pandêmico causado pelo Covid 19 e em ' +
+                    'O aplicativo tem por objetivo ajudar nas questões de cuidados mentais durante o período pandêmico causado pelo Covid 19, em ' +
                     'tempos de isolamento social e home office. A ideia principal do sistema é incentivar a inclusão de atividades saudáveis física e ' +
-                    'psicologicamente na rotina com uma percepção visual do progresso durante cada dia.',
+                    'psicologicamente na rotina com uma percepção visual do progresso durante cada dia. O cálculo do tempo de descanso é realizado' +
+                    ' levando em consideração os tempos incluídos pelo usuário, sendo a extração dos minutos de descanso de acordo com a técnica Pomodoro,' +
+                    ' somado ao tempo que pode ser pré definido para descanso.',
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 20,
+                  fontSize: 14,
                 ),
                 textAlign: TextAlign.justify,
               ),

@@ -161,7 +161,8 @@ class _MyHomePageState extends State<MyHomePage> {
                               _controller.list[i].missingTime.toString() +
                               "                                           " +
                               "Porcentagem atual: " +
-                              _controller.list[i].percentage.toString() +
+                              _controller.list[i].percentage
+                                  .toStringAsPrecision(3) +
                               "%",
                           style: TextStyle(color: Colors.white, fontSize: 16),
                         ),
@@ -246,7 +247,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   id: _controller.list[i].id,
                   title: _controller.list[i].title,
                   actualTime: _controller.list[i].actualTime,
-                  missingTime: 0,
+                  missingTime: _controller.list[i].actualTime.toInt(),
                   percentage: 0),
             );
           }

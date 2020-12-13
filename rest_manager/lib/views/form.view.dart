@@ -197,7 +197,7 @@ class _MyFormState extends State<MyForm> {
                   _validate(validation, " as horas trabalhadas"),
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
-                labelText: "Quantas horas você trabalha por dia?",
+                labelText: "Quantas horas você trabalha/estuda por dia?",
                 labelStyle: TextStyle(color: Colors.white),
               ),
               style: TextStyle(
@@ -354,6 +354,7 @@ class _MyFormState extends State<MyForm> {
                 percentage: 0));
           }
           if (workoutValue) {
+            print(activityTime);
             await _controller.create(Activity(
                 title: "Atividades Físicas",
                 actualTime: activityTime.toDouble(),
