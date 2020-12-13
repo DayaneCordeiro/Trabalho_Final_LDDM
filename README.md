@@ -56,53 +56,53 @@
 * Essa pergunta teve como objetivo conhecer o perfil do usuário a fim de reconhecer quantos fazem parte do público alvo (pessoas que exercem atividades de forma remota).
 
 
-![]()
+![](https://github.com/DayaneCordeiro/Trabalho_Final_LDDM/blob/main/imagens/Anota%C3%A7%C3%A3o%202020-12-13%20005212.png)
 
 
 #### Pergunta 02
 * Essa pergunta teve como objetivo conhecer o perfil do usuário no sentido de comprovar que a maioria das pessoas não tem habilidade em conseguir separar as atividades remotas das atividades pessoais uma vez que tudo acontece no mesmo ambiente.
 
 
-![]()
+![](https://github.com/DayaneCordeiro/Trabalho_Final_LDDM/blob/main/imagens/Anota%C3%A7%C3%A3o%202020-12-13%20005249.png)
 
 
 #### Pergunta 03
 * Sobre a facilidade de entender a linguagem utilizada no sistema.
 
 
-![]()
+![](https://github.com/DayaneCordeiro/Trabalho_Final_LDDM/blob/main/imagens/Anota%C3%A7%C3%A3o%202020-12-13%20005318.png)
 
 
 #### Pergunta 04
 * Sobre a facilidade de manipulação do aplicativo.
 
 
-![]()
+![](https://github.com/DayaneCordeiro/Trabalho_Final_LDDM/blob/main/imagens/Anota%C3%A7%C3%A3o%202020-12-13%20005347.png)
 
 
 #### Pergunta 05
 * Sobre entender o objetivo do produto implementado.
 
 
-![]()
+![](https://github.com/DayaneCordeiro/Trabalho_Final_LDDM/blob/main/imagens/Anota%C3%A7%C3%A3o%202020-12-13%20005436.png)
 
 
 #### Pergunta 06
 * A fim de entender a facilidade em termos de usabilidade geral do aplicativo.
 
 
-![]()
+![](https://github.com/DayaneCordeiro/Trabalho_Final_LDDM/blob/main/imagens/Anota%C3%A7%C3%A3o%202020-12-13%20005509.png)
 
 
 #### Pergunta 07
 * A fim de entender a utilidade do app criado.
 
 
-![]()
+![](https://github.com/DayaneCordeiro/Trabalho_Final_LDDM/blob/main/imagens/Anota%C3%A7%C3%A3o%202020-12-13%20005535.png)
 
 
 #### Espaço aberto para comentários
 * A fim de colher dicas, problemas específicos que não foram encontrados durante os testes e comentários em geral.
 
 
-![]()
+![](https://github.com/DayaneCordeiro/Trabalho_Final_LDDM/blob/main/imagens/Anota%C3%A7%C3%A3o%202020-12-13%20005613.png)
