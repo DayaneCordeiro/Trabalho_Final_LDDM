@@ -23,6 +23,7 @@
 */
 
 import 'package:flutter/material.dart';
+import 'home_page.view.dart';
 
 class AboutUs extends StatelessWidget {
   @override
@@ -78,6 +79,18 @@ class _AboutUsPageState extends State<AboutUsPage> {
             )
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => MyApp(),
+            ),
+          );
+        },
+        label: Text('Voltar'),
+        backgroundColor: Colors.cyan[700],
       ),
       backgroundColor: Colors.grey[800],
     );

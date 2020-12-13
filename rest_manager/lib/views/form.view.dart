@@ -337,16 +337,14 @@ class _MyFormState extends State<MyForm> {
           // uma página a cada 3 minutos
           int numPages = 0;
 
-          if (booksValue) {
-            // Se o livro tiver sido marcado realiza a lógica
-            numPages = _calculatePages(activityTime);
-          }
-
           // Apaga tudo que está no banco para reescrever as informações
           await _clearDatabase();
 
           // Salvando no banco as atividades selecionadas
           if (booksValue) {
+            // Se o livro tiver sido marcado realiza a lógica
+            numPages = _calculatePages(activityTime);
+
             await _controller.create(Activity(
                 title: "Ler livros",
                 actualTime: numPages.toDouble(),
