@@ -1,7 +1,23 @@
-# Gerenciador de descanso 😎
+# Rest Manager 🏝
 
-### Link do vídeo
+![Badge](https://img.shields.io/github/forks/DayaneCordeiro/Trabalho_Final_LDDM?style=social)&nbsp;&nbsp;&nbsp;
+![Badge](https://img.shields.io/github/stars/DayaneCordeiro/Trabalho_Final_LDDM?style=social)&nbsp;&nbsp;&nbsp;
+![Badge](https://img.shields.io/github/license/DayaneCordeiro/Trabalho_Final_LDDM?style=social)<br><br>
+
+![Badge](https://img.shields.io/badge/OS-Android-green)
+![Badge](https://img.shields.io/badge/Flutter-2.2-blue)
+![Badge](https://img.shields.io/badge/SQLite-3.0-yellowgreen)
+![Badge](https://img.shields.io/badge/SharedPreferences-2.0.7-orange)
+![Badge](https://img.shields.io/badge/Architecture-MVC-brightgreen)
+
+<h1>🚧 README on improvements, wait for more 🚧</h1>
+
+
+### Video link:
 * https://reccloud.com/pt/u/c2vqbm8
+
+<hr>
+<!--  -->
 
 ### Descrição da aplicação
 * Trabalho desenvolvido na disciplina Laboratório de Desenvolvimento para Dispositivos Móveis.
