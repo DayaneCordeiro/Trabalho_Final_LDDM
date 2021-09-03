@@ -43,17 +43,18 @@
 * Para zerar o tempo de dedicação no dia seguinte, a pessoa pode clicar no botão disponível ao fim da tela e o progresso reinicia. -->
 
 ### Application purpose
-* <div align="justify"> In times of the Covid 19 pandemic and the much talked about "new normal", many companies, schools and universities have taken over the remote regime. The comfort of home brings some benefits, such as convenience and not having to go through the stress of traffic to get to work. However, at the same time that these advantages are noted, it is also possible to notice some points that need care.</div>
-* <div align="justify"> It is known that the current generation is the one that suffers with the highest rates recorded in the history of cases of depression. And with social isolation it is very important to keep your mind healthy. With that in mind, the rest manager application was developed. The main idea is to include in people's daily activities scientifically proven activities that are physically and psychologically beneficial.</div>
-* The first step is to calculate how much time each person has available each day. For this, the pomodoro method was used. In this method, you work 25 minutes and rest for 5, so, for each hour of work, a person must have 10 minutes of rest so that they can maintain concentration and productivity during their journey. So even if the person does not register any rest time, the application calculates, based on the work time, how many minutes of rest the person should have.
+* <div align="justify"> In times of the Covid 19 pandemic and the much talked about "new normal", many companies, schools and universities have taken over the remote regime. The comfort of home brings some benefits, such as convenience and not having to go through the stress of traffic to get to work. However, at the same time that these advantages are noted, it is also possible to notice some points that need care.</div><br>
+* <div align="justify"> It is known that the current generation is the one that suffers with the highest rates recorded in the history of cases of depression. And with social isolation it is very important to keep your mind healthy. With that in mind, the rest manager application was developed. The main idea is to include in people's daily activities scientifically proven activities that are physically and psychologically beneficial.</div><br>
+* <div align="justify"> The first step is to calculate how much time each person has available each day. For this, the pomodoro method was used. In this method, you work 25 minutes and rest for 5, so, for each hour of work, a person must have 10 minutes of rest so that they can maintain concentration and productivity during their journey. So even if the person does not register any rest time, the application calculates, based on the work time, how many minutes of rest the person should have.</div><br>
 * Having finally calculated the time, the person chooses which activities to include. The proposed activities are as follows:
      * Read books;
      * Do physical exercise;
      * Meditate;
      * Rest;
      * Learn something new.
-* After carrying out these settings, the user will have on the main screen how much time to dedicate to each chosen activity. It is worth mentioning that when the user selects the option to read books, instead of showing the time of dedication, it will appear how many pages he should read per day. The calculation was based on a study that proves that a person reads an average of 1 book page every 3 minutes. By clicking on the activity, the person can add the minutes or pages that they are fulfilling or reading and thus see the percentage of progress changing.
-* To reset the dedication time for the next day, the person can click on the available button at the bottom of the screen and the progress restarts.
+<br><br>
+* <div align="justify"> After carrying out these settings, the user will have on the main screen how much time to dedicate to each chosen activity. It is worth mentioning that when the user selects the option to read books, instead of showing the time of dedication, it will appear how many pages he should read per day. The calculation was based on a study that proves that a person reads an average of 1 book page every 3 minutes. By clicking on the activity, the person can add the minutes or pages that they are fulfilling or reading and thus see the percentage of progress changing.</div><br>
+* <div align="justify"> To reset the dedication time for the next day, the person can click on the available button at the bottom of the screen and the progress restarts.</div>
 
 <!-- ### Entradas do usuário
 * Quantas horas trabalha por dia;
@@ -70,7 +71,7 @@
 <hr>
 
 ### System outputs
-* Each of the activities chosen in the configuration with its respective daily dedication time, time left in the day for the activity to be completed and percentage of progress.
+* <div align="justify"> Each of the activities chosen in the configuration with its respective daily dedication time, time left in the day for the activity to be completed and percentage of progress.</div>
 
 <!-- ### Saídas do sistema
 * Cada um das atividades escolhidas na configuração com seu respectivo tempo de dedicação diário, tempo que falta no dia para que a atividade seja cumprida e porcentagem do progresso.
@@ -113,59 +114,78 @@
 <hr>
 
 ### Usability Test
-* One of the requirements of this work was the execution of a usability test with app users. For this, the generated apk was distributed to eight volunteers and a form created with Google Forms was made available for each of them. All responses were collected confidentially in order to obtain greater sincerity from users. At the end of the tests, data were collected and will be displayed below:
+* <div align="justify"> One of the requirements of this work was the execution of a usability test with app users. For this, the generated apk was distributed to eight volunteers and a form created with Google Forms was made available for each of them. All responses were collected confidentially in order to obtain greater sincerity from users. At the end of the tests, data were collected and will be displayed below:</div>
 
-#### Pergunta 01
-* Essa pergunta teve como objetivo conhecer o perfil do usuário a fim de reconhecer quantos fazem parte do público alvo (pessoas que exercem atividades de forma remota).
+#### Question 01
+* <div align="justify"> This question aimed to know the user's profile in order to recognize how many are part of the target audience (people who perform activities remotely).</div>
 
 
 ![](https://github.com/DayaneCordeiro/Trabalho_Final_LDDM/blob/main/imagens/Anota%C3%A7%C3%A3o%202020-12-13%20005212.png)
 
 
-#### Pergunta 02
-* Essa pergunta teve como objetivo conhecer o perfil do usuário no sentido de comprovar que a maioria das pessoas não tem habilidade em conseguir separar as atividades remotas das atividades pessoais uma vez que tudo acontece no mesmo ambiente.
+#### Question 02
+* <div align="justify"> This question aimed to know the user profile in order to prove that most people do not have the ability to separate remote activities from personal activities since everything happens in the same environment. </div>
 
 
 ![](https://github.com/DayaneCordeiro/Trabalho_Final_LDDM/blob/main/imagens/Anota%C3%A7%C3%A3o%202020-12-13%20005249.png)
 
 
-#### Pergunta 03
-* Sobre a facilidade de entender a linguagem utilizada no sistema.
+#### Question 03
+* About the ease of understanding the language used in the system.
 
 
 ![](https://github.com/DayaneCordeiro/Trabalho_Final_LDDM/blob/main/imagens/Anota%C3%A7%C3%A3o%202020-12-13%20005318.png)
 
 
-#### Pergunta 04
-* Sobre a facilidade de manipulação do aplicativo.
+#### Question 04
+* About the ease of handling the application.
 
 
 ![](https://github.com/DayaneCordeiro/Trabalho_Final_LDDM/blob/main/imagens/Anota%C3%A7%C3%A3o%202020-12-13%20005347.png)
 
 
-#### Pergunta 05
-* Sobre entender o objetivo do produto implementado.
+#### Question 05
+* About understanding the purpose of the implemented product.
 
 
 ![](https://github.com/DayaneCordeiro/Trabalho_Final_LDDM/blob/main/imagens/Anota%C3%A7%C3%A3o%202020-12-13%20005436.png)
 
 
-#### Pergunta 06
-* A fim de entender a facilidade em termos de usabilidade geral do aplicativo.
+#### Question 06
+* In order to understand the ease in terms of overall usability of the application.
 
 
 ![](https://github.com/DayaneCordeiro/Trabalho_Final_LDDM/blob/main/imagens/Anota%C3%A7%C3%A3o%202020-12-13%20005509.png)
 
 
-#### Pergunta 07
-* A fim de entender a utilidade do app criado.
+#### Question 07
+* In order to understand the usefulness of the app created.
 
 
 ![](https://github.com/DayaneCordeiro/Trabalho_Final_LDDM/blob/main/imagens/Anota%C3%A7%C3%A3o%202020-12-13%20005535.png)
 
 
-#### Espaço aberto para comentários
-* A fim de colher dicas, problemas específicos que não foram encontrados durante os testes e comentários em geral.
+#### Open space for comments
+* In order to harvest tips, specific issues that were not found during testing and general comments.
 
 
 ![](https://github.com/DayaneCordeiro/Trabalho_Final_LDDM/blob/main/imagens/Anota%C3%A7%C3%A3o%202020-12-13%20005613.png)
+
+
+<div id="autho">
+    <h1>Author</h1>
+    <a href="https://github.com/DayaneCordeiro">
+        <img style="border-radius: 100%;" src="https://avatars.githubusercontent.com/u/50596100?v=4" width="150px;" alt=""/>
+        <br />
+        <sub><b>Dayane Cordeiro</b></sub>
+    </a>
+
+   Made with ❤️ by Dayane Cordeiro!
+
+   ✔ Computer Engineering student at PUC Minas<br>
+   ✔ PHP Developer<br>
+   ✔ Passionate about computer architecture and learning.<br>
+
+   [![Linkedin Badge](https://img.shields.io/badge/-Dayane-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/dayane-cordeiro-1b761318b/)](https://www.linkedin.com/in/dayane-cordeiro-1b761318b/) 
+   [![Gmail Badge](https://img.shields.io/badge/-dayane.cordeirogs@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:dayane.cordeirogs@gmail.com)](mailto:dayane.cordeirogs@gmail.com)
+</div>
