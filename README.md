@@ -1,4 +1,4 @@
-# Rest Manager 🏝
+<h1 align="center">Rest Manager 🏝</h1>
 
 ![Badge](https://img.shields.io/github/forks/DayaneCordeiro/Trabalho_Final_LDDM?style=social)&nbsp;&nbsp;&nbsp;
 ![Badge](https://img.shields.io/github/stars/DayaneCordeiro/Trabalho_Final_LDDM?style=social)&nbsp;&nbsp;&nbsp;
@@ -12,8 +12,14 @@
 
 <h1>🚧 README on improvements, wait for more 🚧</h1>
 
+# Documentation
+* [Video link](#video-link)
+* [Application description](#application-description)
+* [Application purpose](#application-purpose)
+* ...
 
-### Video link:
+
+## Video link:
 * https://reccloud.com/pt/u/c2vqbm8
 
 <hr>
@@ -23,7 +29,7 @@
 * Trabalho desenvolvido na disciplina Laboratório de Desenvolvimento para Dispositivos Móveis.
 * Aplicativo mobile utilizando as tecnologias Flutter, SQLite, SharedPreferences e com padrão de arquitetura MVC. -->
 
-### Application description
+## Application description
 * Work developed in the Mobile Device Development Laboratory course.
 * Mobile application using Flutter, SQLite, SharedPreferences and MVC architecture standard.
 
