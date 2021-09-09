@@ -16,10 +16,15 @@
 * [Video link](#video-link)
 * [Application description](#application-description)
 * [Application purpose](#application-purpose)
-* ...
+* [User Inputs](#user-inputs)
+* [System outputs](#system-outputs)
+* [System version](#system-version)
+* [Apresentation](#apresentation)
+* [Usability Test](#usability-test)
+* [Author](#author)
 
 
-## Video link:
+### Video link:
 * https://reccloud.com/pt/u/c2vqbm8
 
 <hr>
@@ -29,7 +34,7 @@
 * Trabalho desenvolvido na disciplina Laboratório de Desenvolvimento para Dispositivos Móveis.
 * Aplicativo mobile utilizando as tecnologias Flutter, SQLite, SharedPreferences e com padrão de arquitetura MVC. -->
 
-## Application description
+### Application description
 * Work developed in the Mobile Device Development Laboratory course.
 * Mobile application using Flutter, SQLite, SharedPreferences and MVC architecture standard.
 
