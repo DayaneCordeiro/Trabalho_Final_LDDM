@@ -2,7 +2,7 @@
 
 ![Badge](https://img.shields.io/github/forks/DayaneCordeiro/Trabalho_Final_LDDM?style=social)&nbsp;&nbsp;&nbsp;
 ![Badge](https://img.shields.io/github/stars/DayaneCordeiro/Trabalho_Final_LDDM?style=social)&nbsp;&nbsp;&nbsp;
-![Badge](https://img.shields.io/github/license/DayaneCordeiro/Trabalho_Final_LDDM?style=social)<br><br>
+![Badge](https://img.shields.io/github/license/DayaneCordeiro/Trabalho_Final_LDDM?style=social)<br>
 
 ![Badge](https://img.shields.io/badge/OS-Android-green)
 ![Badge](https://img.shields.io/badge/Flutter-2.2-blue)
@@ -182,11 +182,18 @@
 
 ![](https://github.com/DayaneCordeiro/Trabalho_Final_LDDM/blob/main/imagens/Anota%C3%A7%C3%A3o%202020-12-13%20005613.png)
 
+![Kitten](https://avatars.githubusercontent.com/u/50596100?v=4 #perfil_img)
+
+img[src~="perfil_img"] {
+   width:150px;
+   height:100px;
+}
 
 <div id="autho">
     <h1>Author</h1>
     <a href="https://github.com/DayaneCordeiro">
-        <img style="border-radius: 100%;" src="https://avatars.githubusercontent.com/u/50596100?v=4" width="150px;" alt=""/>
+       <img style="border-radius: 100%;" src="https://avatars.githubusercontent.com/u/50596100?v=4" width="150px;" alt=""/>
+       
         <br />
         <sub><b>Dayane Cordeiro</b></sub>
     </a>
